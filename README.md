@@ -1,1 +1,1 @@
-# hotRestaurant
+# just-be-friends
