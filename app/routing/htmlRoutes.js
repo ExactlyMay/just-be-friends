@@ -7,16 +7,7 @@ function htmlRoutes(app) {
     });
     app.use("/", (request, response) => {
         response.sendFile(path.join(__dirname, "/../public/home.html"));
-    });
-    // app.get('/survey', function (req, res) {
-    //   res.sendFile(path.join(__dirname + '/../public/survey.html'));
-    // });
-  
-    // app.use(function (req, res) {
-    //   res.sendFile(path.join(__dirname + '/../public/home.html'));
-    // });
-  
+    });  
   }
     
-  // Export for use in main server.js file
   module.exports = htmlRoutes;

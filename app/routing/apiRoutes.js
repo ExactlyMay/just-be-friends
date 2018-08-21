@@ -29,9 +29,8 @@ function apiRoutes(app) {
 
         for(var i=0; i < friends.length; i++){
             var temp = Math.abs(friend.totalsum - friends[i].totalsum);
-            console.log("Temp: " + temp)
             var temp2 = Math.abs(friend.totalsum - friends[bestMatch].totalsum)
-            console.log("Temp2: " + temp2)
+
             if(temp <= temp2){
                 bestMatch = i;
             }
