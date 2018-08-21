@@ -20,7 +20,7 @@
 		<h3><strong>Question 1</strong></h3>
 		<div class="form-group">
 				<label for="exampleFormControlSelect1">Your mind is always buzzing with unexplored ideas and plans.</label>
-				<select class="form-control" id="exampleFormControlSelect1">
+				<select class="form-control" id="q1">
 				  <option value="1">1 (Strongly Disagree)</option>
 				  <option value="2">2</option>
 				  <option value="3">3</option>
@@ -30,7 +30,7 @@
 		</div>
 		<h3><strong>Question 2</strong></h3>
 		<div class="form-group">
-				<label for="exampleFormControlSelect1">Generally speaking, you rely more on your experience than your imagination.</label>
+			<label>Generally speaking, you rely more on your experience than your imagination.</label>
 				<select class="form-control" id="q2">
 				  <option value="1">1 (Strongly Disagree)</option>
 				  <option value="2">2</option>
@@ -40,7 +40,10 @@
 				</select>
 		</div>
 		<h3><strong>Question 3</strong></h3>
+		<div class="form-group">
+
 		<h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
+
 		<select class="form-control" id="q3">
 				<option value="1">1 (Strongly Disagree)</option>
 				<option value="2">2</option>
@@ -48,7 +51,10 @@
 				<option value="4">4</option>
 				<option value="5">5 (Strongly Agree)</option>
 		</select>
+		</div>
 		<h3><strong>Question 4</strong></h3>
+		<div class="form-group">
+
 		<h4>You rarely do something just out of sheer curiosity.</h4>
 		<select class="form-control" id="q4">
 				<option value="1">1 (Strongly Disagree)</option>
@@ -57,8 +63,10 @@
 				<option value="4">4</option>
 				<option value="5">5 (Strongly Agree)</option>
 		</select>
-		
+		</div>
 		<h3><strong>Question 5</strong></h3>
+		<div class="form-group">
+
 		<h4>People can rarely upset you.</h4>
 		<select class="form-control" id="q5">
 				<option value="1">1 (Strongly Disagree)</option>
@@ -67,7 +75,7 @@
 				<option value="4">4</option>
 				<option value="5">5 (Strongly Agree)</option>
 		</select>
-
+</div>
 		<h3><strong>Question 6</strong></h3>
 		<h4>It is often difficult for you to relate to other people’s feelings.</h4>
 		<select class="form-control" id="q6">
@@ -80,6 +88,8 @@
 
 		
 		<h3><strong>Question 7</strong></h3>
+		<div class="form-group">
+
 		<h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
 		<select class="form-control" id="q7">
 				<option value="1">1 (Strongly Disagree)</option>
@@ -88,8 +98,11 @@
 				<option value="4">4</option>
 				<option value="5">5 (Strongly Agree)</option>
 		</select>
+</div>
 
 		<h3><strong>Question 8</strong></h3>
+		<div class="form-group">
+
 		<h4>You rarely get carried away by fantasies and ideas.</h4>
 		<select class="form-control" id="q8">
 				<option value="1">1 (Strongly Disagree)</option>
@@ -98,8 +111,11 @@
 				<option value="4">4</option>
 				<option value="5">5 (Strongly Agree)</option>
 		</select>
-		
+		</div>
+
 		<h3><strong>Question 9</strong></h3>
+		<div class="form-group">
+
 		<h4>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h4>
 		<select class="form-control" id="q9">
 				<option value="1">1 (Strongly Disagree)</option>
@@ -108,8 +124,10 @@
 				<option value="4">4</option>
 				<option value="5">5 (Strongly Agree)</option>
 		</select>
-		
+		</div>
 		<h3><strong>Question 10</strong></h3>
+		<div class="form-group">
+
 		<h4>You feel more energetic after spending time with a group of people.</h4>
 		<select class="form-control" id="q10">
 				<option value="1">1 (Strongly Disagree)</option>
@@ -118,23 +136,12 @@
 				<option value="4">4</option>
 				<option value="5">5 (Strongly Agree)</option>
 		</select>
+		</div>
+
 		<br>
 		<br>
 		 <button class="btn btn-primary btn-lg btn-block" id="submit" type="submit"> Submit</button>
 		<hr>
-
-		<!-- <div class="chosen-container chosen-container-single" id="q2_chosen" style="width: 155px;" title="">
-			<a class="chosen-single chosen-default"><span>Select an Option</span>
-			<div>
-				<b></b>
-			</div></a>
-			<div class="chosen-drop">
-				<div class="chosen-search">
-					<input autocomplete="off" type="text">
-				</div>
-				<ul class="chosen-results"></ul>
-			</div>
-		</div> -->
 		<footer class="footer">
 			<div class="container">
 				<p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/exactlymay/just-be-friends">GitHub Repo</a></p>
@@ -157,5 +164,55 @@
 			</div>
 		</div>
 	</div>
+
+<script>
+	$("#submit").on("click", function(event) {
+    event.preventDefault();
+  
+    // function validateForm() {
+
+      var isValid = true;
+    //   $(".form-control").each(function() {
+    //     if ($(this).val() === "") {
+	// 		isValid = false;
+	// 	}
+    //   });
+				
+    //   $(".form-group").each(function() {
+  
+    //     if ($(this).val() === "") {
+    //       isValid = false;
+    //     }
+    //   });
+    //   return isValid;
+    // }
+  
+    if (isValid) {
+		let newFriend = {
+                    name: $("#name").val().trim(),
+                    photo: $("#photo").val().trim(),
+                    scores: [
+                        $("#q1").val(),
+                        $("#q2").val(),
+                        $("#q3").val(),
+                        $("#q4").val(),
+                        $("#q5").val(),
+                        $("#q6").val(),
+                        $("#q7").val(),
+                        $("#q8").val(),
+                        $("#q9").val(),
+                        $("#q10").val()
+                    ]};
+	$.post("/api/friends", newFriend)
+		.then(data => {
+		$("#match-name").text(data.name);
+        $("#match-img").attr("src", data.photo);
+        $("#results-modal").modal("toggle");
+	});
+    } else {
+      alert("Please fill out all fields before submitting!");
+    }
+  });
+</script>
 </body>
 </html>
